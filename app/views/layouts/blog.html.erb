@@ -8,7 +8,7 @@
 
 
     <%= stylesheet_link_tag    'blogs', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'blogs', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
@@ -23,8 +23,7 @@
     <% end %>
     <%= yield %>
 
-    <%= render 'shared/nav' %>
-
+    <%= render 'shared/nav', location: 'bottom' %>
 
     <% if session[:source] %>
       Thanks for visiting me from <%= session[:source] %>

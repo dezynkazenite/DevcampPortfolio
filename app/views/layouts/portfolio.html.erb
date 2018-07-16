@@ -8,12 +8,14 @@
 
 
     <%= stylesheet_link_tag    'portfolios', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'portfolios', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+
+    <%= render 'shared/nav', location: 'top' %>
 
     <% if current_user.is_a?(User) %>
       <%= link_to "Logout", destroy_user_session_path, method: :delete %>
@@ -21,10 +23,8 @@
       <%= link_to "Login", new_user_session_path %>
       <%= link_to "Register", new_user_registration_path %>
     <% end %>
+
     <%= yield %>
-
-    <%= render 'shared/nav' %>
-
 
     <% if session[:source] %>
       Thanks for visiting me from <%= session[:source] %>
